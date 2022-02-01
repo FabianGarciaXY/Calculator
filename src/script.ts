@@ -1,6 +1,6 @@
 
 
-const operate = function(operation: (a:number, b:number) => void, a: number, b: number) {
+const operate = function(operation: (a:number, b:number) => number, a: number, b: number) {
     return operation(a, b);
 }
 
@@ -26,6 +26,8 @@ const divide = function(a: number, b:number) {
 }
 
 // DOM numbers
+let display: string = "";
+
 const digits: HTMLElement = document.querySelector('.digits');
 for (let digit: number = 1 ; digit <= 9; digit ++) {
     
@@ -42,5 +44,9 @@ for (let digit: number = 1 ; digit <= 9; digit ++) {
 // Digits EventListeners
 function printOnScreen(e): void {
     const screen: HTMLElement = document.querySelector('.screen');
-    screen.textContent = e.target.textContent;
+    display = display.concat(e.target.textContent);
+    console.log(display);
+    screen.textContent = display;
 }
+
+console.log('TSCONFING Works!!! or NOT ????');

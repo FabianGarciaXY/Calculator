@@ -18,7 +18,8 @@ const divide = function (a, b) {
     const result = a / b;
     return parseFloat(result.toFixed(1));
 };
-// DOM Elements
+// DOM numbers
+let display = "";
 const digits = document.querySelector('.digits');
 for (let digit = 1; digit <= 9; digit++) {
     const newDigit = document.createElement('button');
@@ -30,5 +31,8 @@ for (let digit = 1; digit <= 9; digit++) {
 // Digits EventListeners
 function printOnScreen(e) {
     const screen = document.querySelector('.screen');
-    screen.textContent = e.target.textContent;
+    display = display.concat(e.target.textContent);
+    console.log(display);
+    screen.textContent = display;
 }
+console.log('TSCONFING Works!!! or NOT ????');
