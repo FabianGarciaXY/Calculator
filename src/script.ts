@@ -1,4 +1,4 @@
-console.log('Hello World');
+
 
 const operate = function(operation: (a:number, b:number) => void, a: number, b: number) {
     return operation(a, b);
@@ -25,7 +25,7 @@ const divide = function(a: number, b:number) {
     return parseFloat(result.toFixed(1));
 }
 
-// DOM Elements
+// DOM numbers
 const digits: HTMLElement = document.querySelector('.digits');
 for (let digit: number = 1 ; digit <= 9; digit ++) {
     
@@ -33,6 +33,14 @@ for (let digit: number = 1 ; digit <= 9; digit ++) {
     newDigit.classList.add('digit');
     newDigit.textContent = digit.toString();
 
+    newDigit.addEventListener('click', printOnScreen)
+
     digits.appendChild(newDigit);
 
+}
+
+// Digits EventListeners
+function printOnScreen(e): void {
+    const screen: HTMLElement = document.querySelector('.screen');
+    screen.textContent = e.target.textContent;
 }

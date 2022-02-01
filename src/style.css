@@ -1,59 +1,89 @@
 
+* {
+    gap: 6px;
+
+}
+
 body {
     background-color: darkslategrey;
     text-align: center;
-    border: solid 2px white;
-    padding: auto;
+    color: snow;
 }
 
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
 .calculatorBody {
-    padding: 20px;
     background-color: rgb(240, 230, 230);
-    border: 3px solid;
-    margin: auto;
     text-align: -webkit-center;
+    padding: 6px;
 }
 
 .screen {
     border: solid 2px;
+    width: 300px;
+    height: 30px;
+    color: black;
 }
 
-.buttons{
-    border: solid 2px;
-    background-color: slategrey;
-    width: fit-content;
+.buttons {
+    padding: 10px ; 
 }
+
 .controlsButtons {
-    background-color: black;
+    margin: 0;
 }
-.numbersAndOp{
+.controls {
+    display: flex;
+}
+
+
+.control-digit-operations {
     display: flex;
     flex-direction: row;
     justify-content: center;
 }
+
+
 .digits {
-    border: solid 2px black;
-    display: flex;
-    flex-direction: row;
-    background-color: dimgray;
-    color: floralwhite;
-    width:fit-content;
-    padding: 1%;
-    justify-content: center;
-    gap: 1%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin-top: 6px;
 }
 .digit {
     background-color: teal;
-    width: 50px;
-    padding: 2px;
 }
+
+
+.numbersAndOp{
+    margin-bottom: 6px;
+}
+.operations{
+    display: flex;
+    flex-direction: column; 
+    justify-content: space-between;
+}
+button {
+    gap: 10px;
+    width: 80px;
+    height: 80px;
+}
+
 .digit:hover {
-    transform: scale(1.1);
+    transform: scale(1.05);
     cursor: pointer;
 }
 
-.operations {
+#equals-button {
+    width: 165px;
+}
+
+.downButtons {
     display: flex;
-    flex-direction: column;
-    
+    justify-content: space-between;
 }

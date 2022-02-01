@@ -1,4 +1,3 @@
-console.log('Hello World');
 const operate = function (operation, a, b) {
     return operation(a, b);
 };
@@ -25,5 +24,11 @@ for (let digit = 1; digit <= 9; digit++) {
     const newDigit = document.createElement('button');
     newDigit.classList.add('digit');
     newDigit.textContent = digit.toString();
+    newDigit.addEventListener('click', printOnScreen);
     digits.appendChild(newDigit);
+}
+// Digits EventListeners
+function printOnScreen(e) {
+    const screen = document.querySelector('.screen');
+    screen.textContent = e.target.textContent;
 }
