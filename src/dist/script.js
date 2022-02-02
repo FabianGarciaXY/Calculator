@@ -28,11 +28,17 @@ for (let digit = 1; digit <= 9; digit++) {
     newDigit.addEventListener('click', printOnScreen);
     digits.appendChild(newDigit);
 }
+const clearButton = document.querySelector('#clear-button');
+clearButton.addEventListener('click', clear);
 // Digits EventListeners
 function printOnScreen(e) {
-    const screen = document.querySelector('.screen');
+    const screen = document.querySelector('.inputs');
     display = display.concat(e.target.textContent);
     console.log(display);
     screen.textContent = display;
 }
-console.log('TSCONFING Works!!! or NOT ????');
+function clear() {
+    display = "";
+    const screen = document.querySelector('.inputs');
+    screen.textContent = display;
+}

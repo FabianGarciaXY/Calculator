@@ -25,12 +25,21 @@ body {
     align-items: center;
 }
 
-.screen {
-    border: solid 2px;
-    width: 300px;
-    height: 30px;
+.display {
+    border: 1px double;
+    margin-top: 10px;
+    width: 95%;
+    height: 50px;
     color: black;
+    background-color: rgb(200, 190, 90);
 }
+.inputs {
+    text-align: start;
+}
+.result {
+    text-align: end;
+}
+
 
 .buttons {
     padding: 10px ; 
