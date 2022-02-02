@@ -42,3 +42,13 @@ function clear() {
     const screen = document.querySelector('.inputs');
     screen.textContent = display;
 }
+const cursor = document.querySelector('.inputs');
+cursor.textContent = '';
+setInterval(() => {
+    if (cursor.textContent === '') {
+        cursor.textContent = '_';
+    }
+    else if (cursor.textContent === '_') {
+        cursor.textContent = '';
+    }
+}, 600);

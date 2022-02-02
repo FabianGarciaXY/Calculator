@@ -1,2 +1,2 @@
 # Calculator
-This is an online calculator based on @TheOdinProject curriculum  using vanilla JS, HTML and CSS.
+This is an online calculator based on @TheOdinProject curriculum  using Typescript, HTML and CSS.

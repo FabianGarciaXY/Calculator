@@ -40,7 +40,6 @@ for (let digit: number = 1 ; digit <= 9; digit ++) {
     newDigit.addEventListener('click', printOnScreen)
 
     digits.appendChild(newDigit);
-
 }
 
 
@@ -61,3 +60,14 @@ function clear() {
     const screen: HTMLElement = document.querySelector('.inputs');
     screen.textContent = display
 }
+
+
+const cursor:HTMLElement = document.querySelector('.inputs');
+cursor.textContent = '';
+setInterval( () => {
+    if(cursor.textContent === '') {
+        cursor.textContent = '_';
+    } else if( cursor.textContent === '_' ) {
+        cursor.textContent = '';
+    }
+}, 600) 
