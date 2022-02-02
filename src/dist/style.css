@@ -54,7 +54,7 @@ body {
 .inputs {
     text-align: start;
 }
-.result {
+#result {
     text-align: end;
 }
 
