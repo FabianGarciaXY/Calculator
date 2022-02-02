@@ -20,7 +20,7 @@ const divide = function (a, b) {
 };
 // Digits EventListeners
 let displayValue = "";
-const cursor = document.querySelector('.inputs');
+const cursor = document.querySelector('#cursor');
 cursor.textContent = '';
 setInterval(() => {
     if (cursor.textContent === '') {
@@ -30,19 +30,10 @@ setInterval(() => {
         cursor.textContent = '';
     }
 }, 600);
+// FIX IT ******
 function printOnScreen(e) {
-    let cursor = "";
-    let screen = document.querySelector('.inputs');
+    const screen = document.querySelector('#input');
     displayValue = displayValue.concat(e.target.textContent);
-    setInterval(() => {
-        console.log(cursor);
-        if (cursor === '') {
-            cursor = '_';
-        }
-        else if (cursor === '_') {
-            cursor = '';
-        }
-    }, 600);
     screen.textContent = displayValue;
 }
 const clearButton = document.querySelector('#clear-button');

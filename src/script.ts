@@ -34,7 +34,7 @@ const divide = function(a: number, b:number) {
 let displayValue: string = "";
 
 
-const cursor:HTMLElement = document.querySelector('.inputs');
+const cursor:HTMLElement = document.querySelector('#cursor');
 cursor.textContent = '';
 setInterval( () => {
     if(cursor.textContent === '') {
@@ -42,27 +42,15 @@ setInterval( () => {
     } else if( cursor.textContent === '_' ) {
         cursor.textContent = '';
     }
-}, 600) 
+}, 600);
 
 
 
 // FIX IT ******
 function printOnScreen(e): void {
-    let cursor: string = ""
 
-    let screen: HTMLElement = document.querySelector('.inputs');
+    const screen: HTMLElement = document.querySelector('#input');
     displayValue = displayValue.concat(e.target.textContent);
-
-
-    setInterval( () => {
-
-        console.log(cursor);
-        if(cursor === '') {
-            cursor = '_';
-        } else if( cursor === '_' ) {
-            cursor = '';
-        }
-    }, 600);
 
     screen.textContent = displayValue;
 }

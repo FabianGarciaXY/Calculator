@@ -28,8 +28,8 @@ body {
 
 .calculatorBody {
     background-color: rgb(104, 117, 153);
-    border: double rgb(63, 10, 10);
-    border-radius: 10px;
+    border: inset rgb(63, 10, 10) 5px;
+    border-radius: 20px;
     padding: 10px;
     display: flex;
     flex-direction: column;
