@@ -1,3 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Supermercado+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Gaegu:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Major+Mono+Display&display=swap');
+
 
 * {
     gap: 6px;
@@ -7,7 +12,11 @@ body {
     background-color: darkslategrey;
     text-align: center;
     color: snow;
+    font-family: 'Supermercado One', cursive;
+    font-size: 20px;
+    margin: 0;
 }
+
 
 
 .container {
@@ -19,6 +28,7 @@ body {
 
 .calculatorBody {
     background-color: rgb(240, 230, 230);
+    border-radius: 10px;
     padding: 6px;
     display: flex;
     flex-direction: column;
@@ -26,12 +36,17 @@ body {
 }
 
 .display {
+    padding: 10px;
     border: 1px double;
     margin-top: 10px;
-    width: 95%;
+    border-radius: 20px 0 10px 5px;
+    width: 90%;
     height: 50px;
     color: black;
     background-color: rgb(200, 190, 90);
+    font-family: 'Major Mono Display', monospace;
+    font-size: 20px;
+    font-weight: bolder;
 }
 .inputs {
     text-align: start;
@@ -42,7 +57,7 @@ body {
 
 
 .buttons {
-    padding: 10px ; 
+    padding: 10px ;
 }
 
 .controlsButtons {
@@ -82,6 +97,8 @@ button {
     gap: 10px;
     width: 80px;
     height: 80px;
+    font-family: 'Space Mono', monospace; 
+    font-size: 20px;
 }
 
 .digit:hover {
@@ -96,4 +113,12 @@ button {
 .downButtons {
     display: flex;
     justify-content: space-between;
+}
+
+footer {
+    margin: 0;
+    margin-top: 50px;
+    background-color: black;
+    padding: 15px;
+    font-size: 17px;
 }
