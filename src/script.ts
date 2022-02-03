@@ -90,13 +90,8 @@ addButton.addEventListener('click', () => {
     value1 = parseInt(displayValue1);
     value2 = parseInt(displayValue2);
 
-    if (!value1) {
-        alert('Please input a number first');
-        return;
-    } else if(value2) {
-        alert('You can only add two numbers')
-        return;
-    }
+    if (!value1) { return alert('Please input a number first');
+    } else if(value2) { return alert('You can only add two numbers');}
 
     functionSelected = add;
     operation.textContent = '+';
@@ -106,10 +101,67 @@ addButton.addEventListener('click', () => {
         digit.removeEventListener('click', printOnScreen1);
         digit.addEventListener('click', printOnScreen2);
     })
-
-    console.log(addButton, value1, displayValue1);
 })
 
+/* Substract Operation */
+const substractButton: HTMLElement = document.querySelector('#substract');
+
+substractButton.addEventListener('click', () => {
+    value1 = parseInt(displayValue1);
+    value2 = parseInt(displayValue2);
+
+    if (!value1) { return alert('Please input a number first');} 
+    else if(value2) { return alert('You can only substract two numbers');}
+
+    functionSelected = substract;
+    operation.textContent = '-';
+
+    const gettinDigits = document.querySelectorAll('.digit');
+    gettinDigits.forEach( digit => {
+        digit.removeEventListener('click', printOnScreen1);
+        digit.addEventListener('click', printOnScreen2);
+    })
+})
+
+/* Multiply Operation*/
+const multiplyButton: HTMLElement = document.querySelector('#multiply');
+multiplyButton.addEventListener('click', () => {
+    value1 = parseInt(displayValue1);
+    value2 = parseInt(displayValue2);
+
+    if (!value1) { return alert('Please input a number first');} 
+    else if(value2) { return alert('You can only substract two numbers');}
+
+    functionSelected = multiply;
+    operation.textContent = 'x'
+
+    const gettinDigits = document.querySelectorAll('.digit');
+    gettinDigits.forEach( digit => {
+        digit.removeEventListener('click', printOnScreen1);
+        digit.addEventListener('click', printOnScreen2);
+    });
+
+})
+
+/* Divide Operation*/
+const divideButton: HTMLElement = document.querySelector('#divide');
+divideButton.addEventListener( 'click', () => {
+
+    value1 = parseInt(displayValue1);
+    value2 = parseInt(displayValue2);
+
+    if (!value1) { return alert('Please input a number first');}
+
+    functionSelected = divide;
+    operation.textContent = '/';
+
+    const gettinDigits = document.querySelectorAll('.digit');
+    gettinDigits.forEach( digit => {
+        digit.removeEventListener('click', printOnScreen1);
+        digit.addEventListener('click', printOnScreen2);
+    });
+
+})
 
 // Result operation
 const equalsButton: HTMLElement = document.querySelector('#equals-button');
