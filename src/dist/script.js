@@ -108,7 +108,7 @@ multiplyButton.addEventListener('click', () => {
         return alert('You can only substract two numbers');
     }
     functionSelected = multiply;
-    operation.textContent = 'x';
+    operation.textContent = '*';
     const gettinDigits = document.querySelectorAll('.digit');
     gettinDigits.forEach(digit => {
         digit.removeEventListener('click', printOnScreen1);
@@ -120,9 +120,24 @@ const divideButton = document.querySelector('#divide');
 divideButton.addEventListener('click', () => {
     value1 = parseInt(displayValue1);
     value2 = parseInt(displayValue2);
-    if (!value1) {
-        return alert('Please input a number first');
+    /* FIX IT !!!!!!!!
+    if (!value1) { return alert('Please input a number first');}
+    else if (value1 && value2) {
+        const newInput:HTMLElement = document.querySelector('#first-input');
+
+        value1 = parseInt(resultDisplay.textContent);
+        value2 = 0;
+
+        resultDisplay.textContent = '';
+        displayValue1 = value1.toString();
+        displayValue2 = '';
+        operation.textContent = '';
+
+
+        console.log(displayValue1);
+        newInput.textContent = displayValue1;
     }
+    */
     functionSelected = divide;
     operation.textContent = '/';
     const gettinDigits = document.querySelectorAll('.digit');
@@ -136,8 +151,6 @@ const equalsButton = document.querySelector('#equals-button');
 equalsButton.addEventListener('click', () => {
     value1 = parseFloat(displayValue1);
     value2 = parseFloat(displayValue2);
-    console.log(value1, value2);
-    console.log(operate(add, value1, value2));
     result = operate(functionSelected, value1, value2);
     resultDisplay.textContent = result.toString();
 });
