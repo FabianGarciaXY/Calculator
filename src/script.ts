@@ -34,6 +34,7 @@ let displayValue2: string = ''
 let value1: number;
 let value2: number;
 let result: number;
+let functionSelected: any;
 
 
 
@@ -97,6 +98,7 @@ addButton.addEventListener('click', () => {
         return;
     }
 
+    functionSelected = add;
     operation.textContent = '+';
 
     const gettinDigits = document.querySelectorAll('.digit');
@@ -117,7 +119,7 @@ equalsButton.addEventListener('click', () => {
 
     console.log(value1, value2);
     console.log(operate(add, value1, value2));
-    result = operate(add, value1, value2);
+    result = operate(functionSelected, value1, value2);
     resultDisplay.textContent = result.toString();
 })
 

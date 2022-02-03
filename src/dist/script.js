@@ -24,6 +24,7 @@ let displayValue2 = '';
 let value1;
 let value2;
 let result;
+let functionSelected;
 // Cursor blink
 const cursor = document.querySelector('#cursor');
 cursor.textContent = '';
@@ -70,6 +71,7 @@ addButton.addEventListener('click', () => {
         alert('You can only add two numbers');
         return;
     }
+    functionSelected = add;
     operation.textContent = '+';
     const gettinDigits = document.querySelectorAll('.digit');
     gettinDigits.forEach(digit => {
@@ -85,7 +87,7 @@ equalsButton.addEventListener('click', () => {
     value2 = parseFloat(displayValue2);
     console.log(value1, value2);
     console.log(operate(add, value1, value2));
-    result = operate(add, value1, value2);
+    result = operate(functionSelected, value1, value2);
     resultDisplay.textContent = result.toString();
 });
 // Clear button
