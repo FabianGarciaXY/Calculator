@@ -52,19 +52,15 @@ setInterval( () => {
 
 
 // Function to populate screen(#input) when clicking a digit & creating digits Elements
-
-const digits: HTMLElement = document.querySelector('.digits');
-
-for (let digit: number = 1 ; digit <= 9; digit ++) {
-    
-    const newDigit: HTMLElement = document.createElement('button');
-    newDigit.classList.add('digit');
-    newDigit.textContent = digit.toString();
-
-    newDigit.addEventListener('click', printOnScreen1)
-    digits.appendChild(newDigit);
+const digits: NodeList = document.querySelectorAll('.digit');
+const arrayOfDigits = [...digits]
+for(let i: number = 0; i < 9; i++ ) {
+    console.log(arrayOfDigits[i])
+    arrayOfDigits[i].addEventListener('click', printOnScreen1)
 }
 
+
+// Funtions to print numbers on the screen
 function printOnScreen1(e): void {
     const firstInput: HTMLElement = document.querySelector('#first-input');
     displayValue1 = displayValue1.concat(e.target.textContent);
@@ -83,6 +79,8 @@ function printOnScreen2(e): void {
 const addButton: HTMLElement = document.querySelector('#add');
 const operation: HTMLElement = document.querySelector('#operation');
 const resultDisplay: HTMLElement = document.querySelector('#result');
+const display1: HTMLElement = document.querySelector('#first-input');
+const display2: HTMLElement = document.querySelector('#second-input');
 
 
 addButton.addEventListener('click', () => {
@@ -91,6 +89,10 @@ addButton.addEventListener('click', () => {
     value2 = parseInt(displayValue2);
 
     if (!value1) { return alert('Please input a number first');}
+    else if (value1 && value2) {
+        display1.textContent = '';
+        display2.textContent = '';
+    }
 
     functionSelected = add;
     operation.textContent = '+';
@@ -102,12 +104,14 @@ addButton.addEventListener('click', () => {
     })
 })
 
+
 /* Substract Operation */
 const substractButton: HTMLElement = document.querySelector('#substract');
 
+
 substractButton.addEventListener('click', () => {
-    value1 = value1;
-    value2 = value2;
+    value1 = parseInt(displayValue1);
+    value2 = parseInt(displayValue2);
 
     if (!value1) { return alert('Please input a number first');} 
     else if(value2) { return alert('You can only substract two numbers');}
@@ -121,6 +125,7 @@ substractButton.addEventListener('click', () => {
         digit.addEventListener('click', printOnScreen2);
     })
 })
+
 
 /* Multiply Operation*/
 const multiplyButton: HTMLElement = document.querySelector('#multiply');
