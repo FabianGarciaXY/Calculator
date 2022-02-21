@@ -1,18 +1,22 @@
-@import url('https://fonts.googleapis.com/css2?family=Supermercado+One&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Space+Mono&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Gaegu:wght@700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Major+Mono+Display&display=swap');
-
+/*Title*/
+@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+/*Numbers*/
+@import url('https://fonts.googleapis.com/css2?family=Graduate&display=swap');
 
 * {
     gap: 6px;
 }
 
+.navbar {
+    height: 80px;
+    background-color: #150d1f;
+}
+
 body {
-    background-color: antiquewhite;
+    background-color: #ffe993;
     text-align: center;
     color: rgb(10, 9, 9);
-    font-family: 'Supermercado One', cursive;
+    font-family: 'Righteous', cursive;    
     font-size: 25px;
     margin: 0;
 }
@@ -27,7 +31,7 @@ body {
 
 
 .calculatorBody {
-    background-color: rgb(104, 117, 153);
+    background-color:#43c9ce;
     border: inset rgb(63, 10, 10) 5px;
     border-radius: 20px;
     padding: 10px;
@@ -42,12 +46,12 @@ body {
     border: 2px solid;
     margin-top: 10px;
     border-radius: 20px 0 10px 5px;
-    border-color: black;
+    border-color: rgb(22, 22, 17);
     width: 90%;
     height: 50px;
-    color: rgb(255, 254, 184);
-    background-color: rgb(6, 20, 34);
-    font-family: 'Major Mono Display', monospace;
+    color: rgb(242, 240, 162);
+    background-color: rgb(0, 24, 22);
+    font-family: 'Graduate', cursive;
     font-size: 24px;
     font-weight: bolder;
 }
@@ -100,7 +104,7 @@ button {
     gap: 10px;
     width: 90px;
     height: 90px;
-    font-family: 'Space Mono', monospace; 
+    font-family: 'Chakra Petch', sans-serif;
     font-size: 20px;
     box-shadow: 1px 3px 1px 0px;
     border-radius: 2%;
@@ -124,7 +128,7 @@ button {
 footer {
     margin: 0;
     margin-top: 50px;
-    background-color: black;
+    background-color: #150d1f;
     color: antiquewhite;
     padding: 15px;
     font-size: 17px;
