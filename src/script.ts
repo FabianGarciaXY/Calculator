@@ -1,3 +1,11 @@
+
+// February 20th of 2022
+// Author: FabyanXy
+// Pending to add an eventlistener to the 'Dot' button 
+// Pending to add its functionality to the 'Percentage' button
+// Pending to add 'C' button a functionality to delete numbers one by one in the screen
+
+
 // Main Function
 const operate = function(operation: (a:number, b:number) => number, a: number, b: number) {
     return operation(a, b);
@@ -34,30 +42,17 @@ console.log(`The ${a}% of ${b} is ${percentage(a, b)}.`);
 
 // Cursor blinking
 const cursor:HTMLElement = document.querySelector('#cursor');
-function cursorBlink () {
-    cursor.textContent = '';
+cursor.textContent = '_';
+(function cursorBlink () {
+    
     setInterval( () => {
-        if(cursor.textContent === '') {
-            cursor.textContent = '_';
-        } else if( cursor.textContent === '_' ) {
+        if(cursor.textContent == '_') {
             cursor.textContent = '';
+        } else if( cursor.textContent == '' ) {
+            cursor.textContent = '_';
         }
     }, 600);
-}
-cursorBlink()
-
-// On-Off Button
-let calculatorState: boolean = true;
-document.querySelector('#on-off').addEventListener('click', on);
-function on() {
-    if (calculatorState) {
-        calculatorState = false;
-
-    } else if (!calculatorState) {
-        calculatorState = true;
-    }
-    console.log(calculatorState)
-}
+}) ();
 
 // Function to populate screen(#input) when clicking a digit from 0 to 9
 const digits: NodeList = document.querySelectorAll('.digit');
@@ -73,20 +68,19 @@ ceroButton.addEventListener('click', printOnScreen1)
 function printOnScreen1(e): void {
     if(result) {
         valueDisplay1.textContent = valueDisplay1.textContent.concat(e.target.textContent);
-        valueDisplay2.textContent = '';
-        resultDisplay.textContent = '';
+        
     } else {
         valueDisplay1.textContent = valueDisplay1.textContent.concat(e.target.textContent);
     }
 }
+
 function printOnScreen2(e): void {
+    // Selection if we already have a prior operation and we want to make a second one
     if(valueDisplay1.textContent && valueDisplay2.textContent && resultDisplay.textContent) {
-        valueDisplay1.textContent = '';
-        operation.textContent = '';
+        clear()
         printOnScreen1(e)
         return
     }
-
     if (!operation.textContent) {
         operation.textContent = operationSelected;
         valueDisplay2.textContent = valueDisplay2.textContent.concat(e.target.textContent);
@@ -114,6 +108,8 @@ let functionSelected: any;
 
 const addButton: HTMLElement = document.querySelector('#add');
 const substractButton: HTMLElement = document.querySelector('#substract');
+const multiplyButton: HTMLElement = document.querySelector('#multiply');
+const divideButton: HTMLElement = document.querySelector('#divide');
 
 /* Add operation */
 addButton.addEventListener('click', () => {
@@ -122,7 +118,7 @@ addButton.addEventListener('click', () => {
     value2 = parseInt(valueDisplay2.textContent);
     result = parseInt(resultDisplay.textContent);
     operationSelected = '+';
-
+    // Verifying if value any of two values isn't null
     if (!value1 && value1 !== 0) { return alert('Please input a number first');}
     if (resultDisplay.textContent) {
         valueDisplay1.textContent = resultDisplay.textContent;
@@ -153,7 +149,7 @@ substractButton.addEventListener('click', () => {
     value2 = parseInt(valueDisplay2.textContent);
     result = parseInt(resultDisplay.textContent);
     operationSelected = '-';
-
+    // Verifying if value any of two values isn't null
     if (!value1 && value1 !== 0) { return alert('Please input a number first');}
     if (resultDisplay.textContent) {
         valueDisplay1.textContent = resultDisplay.textContent;
@@ -165,7 +161,6 @@ substractButton.addEventListener('click', () => {
     if (!result) {
     operation.textContent = '-';
     }
-
     functionSelected = substract;
     const gettinDigits = document.querySelectorAll('.digit');
     gettinDigits.forEach( digit => {
@@ -176,7 +171,66 @@ substractButton.addEventListener('click', () => {
         ceroButton.addEventListener('click', printOnScreen2);
     })
 })
+/* Multiply operation */
+multiplyButton.addEventListener('click', () => {
 
+    value1 = parseInt(valueDisplay1.textContent);
+    value2 = parseInt(valueDisplay2.textContent);
+    result = parseInt(resultDisplay.textContent);
+    operationSelected = '*';
+    // Verifying if value any of two values isn't null
+    if (!value1 && value1 !== 0) { return alert('Please input a number first');}
+    if (resultDisplay.textContent) {
+        valueDisplay1.textContent = resultDisplay.textContent;
+        valueDisplay2.textContent = '';
+        resultDisplay.textContent = '';
+        operation.textContent = '';
+    }
+    
+    if (!result) {
+    operation.textContent = '*';
+    }
+
+    functionSelected = multiply;
+    const gettinDigits = document.querySelectorAll('.digit');
+    gettinDigits.forEach( digit => {
+        digit.removeEventListener('click', printOnScreen1);
+        digit.addEventListener('click', printOnScreen2);
+
+        ceroButton.removeEventListener('click', printOnScreen1);
+        ceroButton.addEventListener('click', printOnScreen2);
+    })
+})
+/* Divide operation */
+divideButton.addEventListener('click', () => {
+
+    value1 = parseInt(valueDisplay1.textContent);
+    value2 = parseInt(valueDisplay2.textContent);
+    result = parseInt(resultDisplay.textContent);
+    operationSelected = '÷';
+    // Verifying if value any of two values isn't null
+    if (!value1 && value1 !== 0) { return alert('Please input a number first');}
+    if (resultDisplay.textContent) {
+        valueDisplay1.textContent = resultDisplay.textContent;
+        valueDisplay2.textContent = '';
+        resultDisplay.textContent = '';
+        operation.textContent = '';
+    }
+    
+    if (!result) {
+    operation.textContent = '÷';
+    }
+
+    functionSelected = divide;
+    const gettinDigits = document.querySelectorAll('.digit');
+    gettinDigits.forEach( digit => {
+        digit.removeEventListener('click', printOnScreen1);
+        digit.addEventListener('click', printOnScreen2);
+
+        ceroButton.removeEventListener('click', printOnScreen1);
+        ceroButton.addEventListener('click', printOnScreen2);
+    })
+})
 
 // Result operation
 equalsButton.addEventListener('click', () => {
@@ -196,7 +250,9 @@ equalsButton.addEventListener('click', () => {
 })
 
 // Clear button
-clearButton.addEventListener('click', function clear() {
+clearButton.addEventListener('click', clear)
+
+function clear() {
     valueDisplay1.textContent = '';
     valueDisplay2.textContent = '';
     operation.textContent = '';
@@ -212,4 +268,4 @@ clearButton.addEventListener('click', function clear() {
 
     ceroButton.addEventListener('click', printOnScreen1)
     ceroButton.removeEventListener('click', printOnScreen2);
-});
+};
