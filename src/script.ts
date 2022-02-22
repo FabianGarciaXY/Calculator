@@ -16,6 +16,7 @@ const add = function(a:number, b: number) {
     const result: number = a + b;
     return parseFloat(result.toFixed(1));
 };
+console.log(add(2.2, 2.3));
 
 const substract = function(a: number, b:number) {
     const result: number = a - b;
@@ -60,15 +61,18 @@ const arrayOfDigits = [...digits]
 for(let i: number = 0; i < 9; i++ ) {
     arrayOfDigits[i].addEventListener('click', printOnScreen1)
 }
+// Cero Button listener
 const ceroButton = document.querySelector('#cero');
 ceroButton.addEventListener('click', printOnScreen1)
+// Dot Button listener
+const dotButton: HTMLElement = document.querySelector('#dot');
+dotButton.addEventListener('click', printOnScreen1)
 
 
 // Funtions to print numbers on the screen
 function printOnScreen1(e): void {
     if(result) {
         valueDisplay1.textContent = valueDisplay1.textContent.concat(e.target.textContent);
-        
     } else {
         valueDisplay1.textContent = valueDisplay1.textContent.concat(e.target.textContent);
     }
@@ -114,9 +118,9 @@ const divideButton: HTMLElement = document.querySelector('#divide');
 /* Add operation */
 addButton.addEventListener('click', () => {
 
-    value1 = parseInt(valueDisplay1.textContent);
-    value2 = parseInt(valueDisplay2.textContent);
-    result = parseInt(resultDisplay.textContent);
+    value1 = parseFloat(valueDisplay1.textContent);
+    value2 = parseFloat(valueDisplay2.textContent);
+    result = parseFloat(resultDisplay.textContent);
     operationSelected = '+';
     // Verifying if value any of two values isn't null
     if (!value1 && value1 !== 0) { return alert('Please input a number first');}
@@ -126,7 +130,6 @@ addButton.addEventListener('click', () => {
         resultDisplay.textContent = '';
         operation.textContent = '';
     }
-    
     if (!result) {
     operation.textContent = '+';
     }
@@ -139,6 +142,9 @@ addButton.addEventListener('click', () => {
 
         ceroButton.removeEventListener('click', printOnScreen1);
         ceroButton.addEventListener('click', printOnScreen2);
+
+        dotButton.removeEventListener('click', printOnScreen1);
+        dotButton.addEventListener('click', printOnScreen2);
     })
 })
 /* Subtract operation */
@@ -169,6 +175,9 @@ substractButton.addEventListener('click', () => {
 
         ceroButton.removeEventListener('click', printOnScreen1);
         ceroButton.addEventListener('click', printOnScreen2);
+
+        dotButton.removeEventListener('click', printOnScreen1);
+        dotButton.addEventListener('click', printOnScreen2);
     })
 })
 /* Multiply operation */
@@ -199,6 +208,9 @@ multiplyButton.addEventListener('click', () => {
 
         ceroButton.removeEventListener('click', printOnScreen1);
         ceroButton.addEventListener('click', printOnScreen2);
+
+        dotButton.removeEventListener('click', printOnScreen1);
+        dotButton.addEventListener('click', printOnScreen2);
     })
 })
 /* Divide operation */
@@ -229,6 +241,9 @@ divideButton.addEventListener('click', () => {
 
         ceroButton.removeEventListener('click', printOnScreen1);
         ceroButton.addEventListener('click', printOnScreen2);
+
+        dotButton.removeEventListener('click', printOnScreen1);
+        dotButton.addEventListener('click', printOnScreen2);
     })
 })
 
@@ -268,4 +283,7 @@ function clear() {
 
     ceroButton.addEventListener('click', printOnScreen1)
     ceroButton.removeEventListener('click', printOnScreen2);
+
+    dotButton.addEventListener('click', printOnScreen1)
+    dotButton.removeEventListener('click', printOnScreen2);
 };
